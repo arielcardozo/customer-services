@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2021.01.09 a las 06:33:13 PM CET 
+
+  -->
+  <bindings xmlns:tns="http://www.allait.com/soap/gen" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="com.allait.soap.client.gen"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:getAllPositionsRequest">
+      <class ref="com.allait.soap.client.gen.GetAllPositionsRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getPositionByIDRequest">
+      <class ref="com.allait.soap.client.gen.GetPositionByIDRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getAllPositionsResponse">
+      <class ref="com.allait.soap.client.gen.GetAllPositionsResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:position">
+      <class ref="com.allait.soap.client.gen.Position"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getPositionByIDResponse">
+      <class ref="com.allait.soap.client.gen.GetPositionByIDResponse"/>
+    </bindings>
+  </bindings>
+  <bindings xmlns:tns="http://www.baeldung.com/springsoap/gen" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="com.allait.soap.client.gen"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:getCountryRequest">
+      <class ref="com.allait.soap.client.gen.GetCountryRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getCountryResponse">
+      <class ref="com.allait.soap.client.gen.GetCountryResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:country">
+      <class ref="com.allait.soap.client.gen.Country"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:currency">
+      <typesafeEnumClass ref="com.allait.soap.client.gen.Currency"/>
+    </bindings>
+  </bindings>
+</bindings>

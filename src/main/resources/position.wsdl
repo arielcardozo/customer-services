@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.baeldung.com/springsoap/gen"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.allait.com/soap/gen" targetNamespace="http://www.allait.com/soap/gen">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.allait.com/soap/gen">
+
+
+            <xs:element name="getAllPositionsRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPositionByIDRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+
+            <xs:element name="getAllPositionsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="positions" type="tns:position"
+                                    minOccurs="1" maxOccurs="unbounded"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPositionByIDResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="position" type="tns:position"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:complexType name="position">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+        </xs:schema>
+    </wsdl:types>
+
+
+    <wsdl:message name="getAllPositionsRequest">
+        <wsdl:part element="tns:getAllPositionsRequest" name="getAllPositionsRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPositionByIDRequest">
+        <wsdl:part element="tns:getPositionByIDRequest" name="getPositionByIDRequest">
+        </wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="getAllPositionsResponse">
+        <wsdl:part element="tns:getAllPositionsResponse" name="getAllPositionsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPositionByIDResponse">
+        <wsdl:part element="tns:getPositionByIDResponse" name="getPositionByIDResponse">
+        </wsdl:part>
+    </wsdl:message>
+
+    <wsdl:portType name="AllPositionsPort">
+        <wsdl:operation name="getAllPositions">
+            <wsdl:input message="tns:getAllPositionsRequest" name="getAllPositionsRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:getAllPositionsResponse" name="getAllPositionsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="PositionByIDPort">
+        <wsdl:operation name="getPositionByID">
+            <wsdl:input message="tns:getPositionByIDRequest" name="getPositionByIDRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:getPositionByIDResponse" name="getPositionByIDResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+
+
+    <wsdl:binding name="AllPositionPortSoap11" type="tns:AllPositionPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getAllPositions">
+            <soap:operation soapAction="" />
+            <wsdl:input name="getAllPositionsRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getAllPositionsResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="PositionByIDPortSoap11" type="tns:PositionByIDPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getPositionByID">
+            <soap:operation soapAction="" />
+            <wsdl:input name="getPositionByIDRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getPositionByIDResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+
+    <wsdl:service name="AllPositionPortService">
+        <wsdl:port binding="tns:AllPositionPortSoap11" name="AllPositionPortSoap11">
+            <soap:address location="http://localhost:8080/ws" />
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:service name="PositionByIDPortService">
+        <wsdl:port binding="tns:PositionByIDPortSoap11" name="PositionByIDPortSoap11">
+            <soap:address location="http://localhost:8080/ws" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
